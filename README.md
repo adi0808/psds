@@ -291,6 +291,10 @@ Please include instructions about your strategy and important decisions you made
    * We can also partition the input file based on day or time depending on the data to run parallel ingestion jobs one for each partition and optimize the ingestion process.
    * We can also check for incremental loads for repeated data based on the business needs.
    * Also for daily ingestion I would schedule the job using orchestration tool like airflow which helps in retrying a job if failed, logging and monitoring the pipeline
+   #### 3. Assumptions
+   * I assumed that each vote is uniquely identified by the Id field and so i used set on the Id field.
+   * Only valid rows are to be insterted in the database and rest is to be skipped
+   * The ingestion is always expected to happen from uncommitted/votes.jsonl, so I used this as the default input file if no path is provided via commandline arguments
 
 ## AI Tool Usage
 
