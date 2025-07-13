@@ -279,7 +279,7 @@ Please include instructions about your strategy and important decisions you made
       * In the 2nd CTE, I calculated the avg vote count using the previous CTE as table.
    2. I than used cross for both the above CTE to get the outlier (I marked a weak as outlier if the vote count was more           than 20% higher or lower than the average weekly vote count which we got from the 2nd CTE using ABS).
 
-### Follow-up Questions
+### Answers to follow-up questions
    #### 1. Data Quality Measures
    * **Schema Validation** - I would have ensured that the required columns like Id, PostId, CreationDate are present and is converted to proper data type before inserting into the database so that we don't handle the datatype conversion while writing the query which may lead to slow running queries.
    * **Deduplication** - I'm using set to get the unique Id and will follow the same thing in production to avoid duplication while inserting records to database
