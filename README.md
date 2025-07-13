@@ -284,8 +284,13 @@ Please include instructions about your strategy and important decisions you made
    * Schema validation - I would have ensured that the required columns like Id, PostId, CreationDate are present and is converted to proper data type before inserting into the database so that we don't handle the datatype conversion while writing the query which may lead to slow running queries.
    * Deduplication = I'm using set to get the unique Id and will follow the same thing in production to avoid duplication while inserting records to database
    * Corrupt Record handling - In my code i'm using try except block to skip the corrupt records but in production I would move the corrupt records to error folder or table for further analysis.
-   * We can also use some other checks like data drift checks which can inform us about the number of records inserted daily and the devaition if any can be alerted.
-_Please provide an explaination to your implementation approach and the additional questions **here**_
+   * Data Drift -We can also use some other checks like data drift checks which can inform us about the number of records inserted daily and the devaition if any can be alerted.
+   #### 2. Scaling
+   * If we are using on premise systems than loading everything into memory will result in out of memory error so i would read the data and keep a counter on the number of records and when it reaches a pre defined limit say 60k than I would insert those to database and again follow the same thing to insert the next batch of records.
+   * DuckDB may not be able to handle large dataset and so swithcing distributed processing and storge would be an ideal approach like Spark for processing and BigQuery for Storage which gives a great boost to analyticl queries and reporting purpose
+   * We can also partition the input file based on day or time depending on the data to run parallel ingestion jobs one for each partition and optimize the ingestion process.
+   * We can also check for incremental loads for repeated data based on the business needs.
+   * Also for daily ingestion I would schedule the job using orchestration tool like airflow which helps in retrying a job if failed, logging and monitoring the pipeline
 
 ## AI Tool Usage
 
