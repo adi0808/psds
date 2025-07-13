@@ -274,9 +274,9 @@ Please include instructions about your strategy and important decisions you made
    3. I than cretaed the schema, table using DuckDB and inserted the clean records in the table.
       
    **Outliers**
-   1. For the outliers I created 2 CTEs - 
-    * In the first CTE I grouped the vote date by year and weak number and than got the count of votes for every week.
-    * In the 2nd CTE, I calculated the avg vote count using the previous CTE as table.
+   1. For the outliers I created 2 CTEs -
+>> In the first CTE I grouped the vote date by year and weak number and than got the count of votes for every week.
+>> In the 2nd CTE, I calculated the avg vote count using the previous CTE as table.
    3. I than used cross for both the above CTE to get the outlier (I marked a weak as outlier if the vote count was more           than 20% higher or lower than the average weekly vote count which we got from the 2nd CTE using ABS).
 
 _Please provide an explaination to your implementation approach and the additional questions **here**_
