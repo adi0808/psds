@@ -281,8 +281,8 @@ Please include instructions about your strategy and important decisions you made
 
 ### Follow-up Questions
    #### 1. Data Quality Measures
-   * Schema validation - I would have ensured that the required columns like Id, PostId, CreationDate are present and is converted to proper data type before inserting into the database so that we don't handle the datatype conversion while writing the query which may lead to slow running queries.
-   * Deduplication = I'm using set to get the unique Id and will follow the same thing in production to avoid duplication while inserting records to database
+   * #####Schema validation##### - I would have ensured that the required columns like Id, PostId, CreationDate are present and is converted to proper data type before inserting into the database so that we don't handle the datatype conversion while writing the query which may lead to slow running queries.
+   * Deduplication - I'm using set to get the unique Id and will follow the same thing in production to avoid duplication while inserting records to database
    * Corrupt Record handling - In my code i'm using try except block to skip the corrupt records but in production I would move the corrupt records to error folder or table for further analysis.
    * Data Drift -We can also use some other checks like data drift checks which can inform us about the number of records inserted daily and the devaition if any can be alerted.
    #### 2. Scaling
